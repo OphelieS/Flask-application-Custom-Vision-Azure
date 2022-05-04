@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Triof</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
+
+        <style>
+            #wrapper:before{
+                content: normal;
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>														
+							<p>Please select the type of waste</p>
+						</header>
+
+						<div class="proba">
+							<p>
+								The probability that you inserted a {{pred}} is PROBA % !
+							</p>
+						</div>
+						
+						<img src = {{ url_for('static', filename = "images/camera/" + picture )}}/>
+
+						<form method="post" action="/confirmation">
+							
+
+
+
+
+								<div class="field">
+
+									<input type="radio" name="type" id="bouteille" {% if pred=="bouteille" %}
+										checked="checked" {% endif %} value="Bouteille plastique">
+			
+									<label for="bouteille">Bottle</label>
+			
+			
+			
+									<input type="radio" name="type" id="gobelet" {% if pred=="gobelet" %} checked="checked" {%
+										endif %} value="gobelet">
+									<label for="gobelet">Cup</label>
+			
+			
+			
+									<input type="radio" name="type" id="couvert" {% if pred=="couvert" %} checked="checked" {%
+										endif %} value="couvert">
+									<label for="couvert">Cutlery</label>
+			
+			
+								</div>
+
+
+                                <div class="field">
+                                    <input type="submit" value="confirm"/>
+                                </div>
+							
+
+						</form>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
+</html>
